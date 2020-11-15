@@ -1,0 +1,20 @@
+#server ip address
+SERVER_IP_ADDRESS='192.168.0.107'
+
+#timeout
+TIMEOUT=10
+
+#timezone for server
+TIMEZONE='Europe/Minsk'
+
+#maximum script running time
+EXECUTION_TIME=300
+
+#maximum size of data uploaded to the server using PHP
+POST_MAX_SIZE='16M'
+
+#time in seconds for PHP to parse the GET and POST input
+MAX_INPUT_TIME=300
+
+#default database for zabbix server
+DEFAULT_DATABASE='zabbix'
