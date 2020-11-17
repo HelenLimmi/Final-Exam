@@ -1,40 +1,13 @@
-﻿function Belong-IpAdresses-Network {
-    <#
-    .SYNOPSIS
-        Checking IP Addresses for belongig to the same network.
+﻿param(
+    [ValidateNotNullOrEmpty()]
+    [Net.IPAddress]$ip_address_1,
 
-    .DESCRIPTION
-        Belong-IpAdresses-Network is a function that check if entering IP Addresses belong to the same network or not.
+    [ValidateNotNullOrEmpty()]
+    [Net.IPAddress]$ip_address_2,
 
-    .PARAMETER ip_address_1
-        This is the first IP Address.
-    
-    .PARAMETER ip_address_2
-        This is the second IP Address.
-    
-    .PARAMETER network_mask
-        This is the network mask.
-
-    .EXAMPLE
-         PS C:\> Belong-IpAdresses-Network -ip_address_1 192.168.1.1 -ip_address_2 192.168.1.2 -network_mask 255.255.255.0
-
-    .INPUTS
-        Input (if any)
-
-    .OUTPUTS
-        Output (if any)
-    #>
-    [CmdletBinding()]
-    param(
-        [ValidateNotNullOrEmpty()]
-        [Net.IPAddress]$ip_address_1,
-
-        [ValidateNotNullOrEmpty()]
-        [Net.IPAddress]$ip_address_2,
-
-        [ValidateNotNullOrEmpty()]
-        [Net.IPAddress]$network_mask
-    )
+    [ValidateNotNullOrEmpty()]
+    [Net.IPAddress]$network_mask
+)
 
     #Check missing parametrs
     if (!$network_mask -or !$ip_address_2 -or !$ip_address_1) {
@@ -48,5 +21,3 @@
     else {
     	Write-Host "These IPAddresses don't belong to the same network."
     }
-}
-Get-Help "Belong-IpAdresses-Network"

@@ -1,5 +1,5 @@
 #server ip address
-SERVER_IP_ADDRESS='192.168.0.107'
+SERVER_IP_ADDRESS='192.168.0.108'
 
 #timeout
 TIMEOUT=10

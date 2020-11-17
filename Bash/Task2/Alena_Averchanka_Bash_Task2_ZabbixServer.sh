@@ -6,7 +6,7 @@
 
 #---Configuration file
 . ZabbixConfig
-. passwd
+. password
 
 #---Set timezone
 echo "###Setting timezone and synchronize the system clock."
@@ -95,14 +95,14 @@ rpm -qa | grep -E "(zabbix-server-mysql|zabbix-web-mysql|zabbix-get)" || dnf ins
 #---Configuring DB
 echo "###Configuring DB."
 #create user for DB
-mysql -uroot -palena <<EOF
+mysql -uroot -p$MYSQL <<EOF
 CREATE DATABASE $DEFAULT_DATABASE DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_bin;
 GRANT ALL PRIVILEGES ON $USER_ZABBIX.* TO $DEFAULT_DATABASE@localhost IDENTIFIED BY '$PASSDW_ZABBIX';
 EOF
 #to apply the scheme, go to the directory, unpack the archive and restore the database
 echo "###Unpack the archive and restore the database."
 cd /usr/share/doc/zabbix-server-mysql
-gunzip create.sql.gz
+gunzip -f create.sql.gz
 mysql -u root -p$MYSQL $DEFAULT_DATABASE < create.sql
 
 #---Configuring zabbix_server.conf.
